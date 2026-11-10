@@ -3,7 +3,9 @@
 A small battery-powered temperature/humidity node built around the bare
 ESP32-C6 chip, meant to run ESPHome over Wi-Fi now and Zigbee (802.15.4) later.
 
-**Status: schematic, revision A.** The PCB has not been laid out yet.
+**Status: schematic and first-pass PCB layout, revision A.** Nothing has been
+built or tested. The layout passes KiCad's design rules check but was routed
+by script and needs a human review before ordering (see below).
 
 ![Schematic](docs/schematic.png)
 
@@ -11,10 +13,14 @@ ESP32-C6 chip, meant to run ESPHome over Wi-Fi now and Zigbee (802.15.4) later.
 |---|---|
 | `hardware/esp32c6-sht4x.kicad_pro` | KiCad 10 project (open this) |
 | `hardware/esp32c6-sht4x.kicad_sch` | Schematic, saved by KiCad 10.0.8 |
+| `hardware/esp32c6-sht4x.kicad_pcb` | PCB layout, 4 layers, 50 x 26 mm |
 | `hardware/lib/esp32c6-sht4x.kicad_sym` | Project symbol for the ESP32-C6FH8 |
 | `docs/schematic.pdf` | Printable schematic |
 | `docs/bom.csv` | Bill of materials exported from the schematic |
 | `docs/erc.rpt` | KiCad electrical rules check report (0 violations) |
+| `docs/drc.rpt` | KiCad design rules check report for the PCB (0 violations, 0 unconnected, schematic parity clean) |
+| `docs/pcb-*.png` | Renders of the board and its outer copper layers |
+| `tools/` | The Python scripts that generated the schematic and the layout (reference only, paths are specific to the machine they ran on) |
 
 ## What is on the board
 
@@ -65,7 +71,46 @@ Bridging solder jumper JP1 makes the rail permanently on.
 - TMR and ITERM are left open for the default safety timers and 10 %
   termination current.
 
-## SHT41 layout rules for the PCB stage
+## PCB layout
+
+![PCB top](docs/pcb-top.png)
+
+- 50 x 26 mm, 4 layers, 1.6 mm. Layer 2 is a solid ground plane, layer 3 is a
+  3V3 plane, and both outer layers carry signals with ground pours.
+- All parts are on the top side. 0.15 mm tracks and clearances, 0.5/0.3 mm
+  vias, which fits standard 4-layer services.
+- The SHT41 sits alone on a peninsula in the top-left corner, cut off by a
+  1 mm slot on two sides. There is no copper pour on any layer there, and the
+  only copper crossing the 4.5 mm bridge is four 0.15 mm traces.
+- The chip antenna is in the top-right corner with all four copper layers
+  cleared around it. The feed is a 0.35 mm trace over the layer-2 ground
+  plane with the pi matching network next to the ESP32-C6.
+- USB-C is on the right edge, the battery connector on the bottom edge, one
+  Qwiic port on the top edge and one on the bottom edge, and the OLED socket
+  along the top edge.
+- The charger and regulator, the warm parts, are about 30 mm from the sensor.
+
+### Review this before ordering
+
+The layout was placed by hand and routed by a script, then checked with
+KiCad's DRC. DRC only proves the copper is connected and spaced correctly.
+A person should still look at:
+
+- **RF feed impedance.** 0.35 mm assumes roughly 0.2 mm of prepreg between
+  layers 1 and 2 (for example JLCPCB's JLC04161H-7628 stackup). Recalculate
+  for the real stackup.
+- **USB D+/D-.** They are routed as two ordinary traces, not as a matched
+  90 ohm pair. That is normally fine for 12 Mbit/s full-speed USB over this
+  distance, but it is not textbook.
+- **Trace aesthetics and return paths.** The autorouted traces are valid but
+  not tidy, and some signals cross the board on the bottom layer.
+- **Decoupling.** Several ESP32-C6 supply pins reach their capacitors through
+  the 3V3 plane rather than by a direct trace.
+- **No mounting holes** and no fiducials yet.
+- Footprints are the stock KiCad ones and have not been checked against the
+  exact parts in the BOM.
+
+## SHT41 layout rules
 
 These follow Sensirion's SHT4x design-in guidance and are what keeps the
 reading at ambient rather than at board temperature.
@@ -73,8 +118,8 @@ reading at ambient rather than at board temperature.
 1. Put the SHT41 in a corner or on a tab at the board edge, as far as possible
    from the ESP32-C6, the BQ24074, the regulator and the charge LED. Put the
    heat sources at the opposite end.
-2. Mill a slot (about 1 mm wide) around three sides of the sensor so it sits on
-   a small peninsula connected by a narrow bridge.
+2. Mill a slot (about 1 mm wide) around the sensor so it sits on a small
+   peninsula connected by a narrow bridge.
 3. No copper pour on any layer under or around the sensor inside the slot. Cut
    the ground plane out there.
 4. Route VDD, GND, SDA and SCL over the bridge as thin traces (0.15 mm or less).

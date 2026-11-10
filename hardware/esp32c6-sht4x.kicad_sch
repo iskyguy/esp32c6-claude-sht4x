@@ -8694,17 +8694,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 289.56 154.94 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "fea6ada8-85ec-58a2-9c4f-26df6b8cb8ec")
 		)
@@ -8771,28 +8760,6 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 69.85 203.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "R res resistor"
-			(at 69.85 203.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "R_*"
 			(at 69.85 203.2 0)
 			(hide yes)
 			(show_name no)
@@ -8884,28 +8851,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "R res resistor"
-			(at 289.56 189.23 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "R_*"
-			(at 289.56 189.23 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "6ae242af-b32d-55a4-9387-745264835219")
 		)
@@ -8977,28 +8922,6 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 152.4 148.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "cap capacitor"
-			(at 152.4 148.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "C_*"
 			(at 152.4 148.59 0)
 			(hide yes)
 			(show_name no)
@@ -9089,17 +9012,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 179.07 264.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "e8a92b19-ad34-5246-a2ed-302128a23e95")
 		)
@@ -9168,28 +9080,6 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 121.92 166.37 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "cap capacitor"
-			(at 121.92 166.37 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "C_*"
 			(at 121.92 166.37 0)
 			(hide yes)
 			(show_name no)
@@ -9280,17 +9170,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 38.1 179.07 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "17abafc3-c504-5f18-86a3-18f10c7f2f7e")
 		)
@@ -9359,28 +9238,6 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 99.06 207.01 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "cap capacitor"
-			(at 99.06 207.01 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "C_*"
 			(at 99.06 207.01 0)
 			(hide yes)
 			(show_name no)
@@ -9471,28 +9328,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "test point tp"
-			(at 320.04 218.44 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "Pin* Test*"
-			(at 320.04 218.44 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "734d10af-af71-5c35-b912-bd7b130a0ba5")
 		)
@@ -9561,28 +9396,6 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 363.22 54.61 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "R res resistor"
-			(at 363.22 54.61 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "R_*"
 			(at 363.22 54.61 0)
 			(hide yes)
 			(show_name no)
@@ -9674,39 +9487,6 @@
 				)
 			)
 		)
-		(property "Sim.Pins" "1=K 2=A"
-			(at 139.7 106.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "LED diode"
-			(at 139.7 106.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "LED* LED_SMD:* LED_THT:*"
-			(at 139.7 106.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "520a2999-7e42-5fcd-a831-76f7ec613f78")
 		)
@@ -9788,28 +9568,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "cap capacitor"
-			(at 144.78 166.37 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "C_*"
-			(at 144.78 166.37 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "62ddcbb2-8c89-5c38-b877-d08a85964ff8")
 		)
@@ -9879,28 +9637,6 @@
 			)
 		)
 		(property "Description" "1A, Low Drop-out Voltage Regulator, Fixed Output 3.3V, SOT-23-5"
-			(at 292.1 55.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "LDO Voltage Regulator 1A"
-			(at 292.1 55.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "SOT?23*"
 			(at 292.1 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -10001,39 +9737,6 @@
 				)
 			)
 		)
-		(property "Sim.Pins" "1=K 2=A"
-			(at 373.38 195.58 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "LED diode"
-			(at 373.38 195.58 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "LED* LED_SMD:* LED_THT:*"
-			(at 373.38 195.58 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "d0c198a7-97d6-5388-926e-23768186e440")
 		)
@@ -10114,17 +9817,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 383.54 81.28 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "60bdf0a8-6654-589d-980c-4101699c7925")
 		)
@@ -10193,28 +9885,6 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 299.72 168.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "cap capacitor"
-			(at 299.72 168.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "C_*"
 			(at 299.72 168.91 0)
 			(hide yes)
 			(show_name no)
@@ -10305,17 +9975,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power battery"
-			(at 218.44 58.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "04158f4a-bead-59cc-a970-304c88a80bc8")
 		)
@@ -10383,17 +10042,6 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 200.66 275.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "global power"
 			(at 200.66 275.59 0)
 			(hide yes)
 			(show_name no)
@@ -10481,17 +10129,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 152.4 275.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "59064749-e312-5448-94a7-69387b86bbae")
 		)
@@ -10559,17 +10196,6 @@
 			)
 		)
 		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 391.16 73.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "flag power"
 			(at 391.16 73.66 0)
 			(hide yes)
 			(show_name no)
@@ -10657,17 +10283,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 165.1 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "a72da19c-934a-5272-9799-c01f9f37e59c")
 		)
@@ -10735,17 +10350,6 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 50.8 262.89 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "global power"
 			(at 50.8 262.89 0)
 			(hide yes)
 			(show_name no)
@@ -10833,17 +10437,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 130.81 264.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "9c8a4f94-b430-5c4b-bcd0-1f16998278f8")
 		)
@@ -10912,28 +10505,6 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 185.42 100.33 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "R res resistor"
-			(at 185.42 100.33 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "R_*"
 			(at 185.42 100.33 0)
 			(hide yes)
 			(show_name no)
@@ -11025,28 +10596,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "R res resistor"
-			(at 27.94 176.53 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "R_*"
-			(at 27.94 176.53 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "9b5620be-dac7-588f-93e2-e03675808c3f")
 		)
@@ -11117,17 +10666,6 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 27.94 180.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "global power"
 			(at 27.94 180.34 0)
 			(hide yes)
 			(show_name no)
@@ -11215,17 +10753,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "flag power"
-			(at 180.34 144.78 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "bee5223f-c553-53bd-8659-b565aa3ebde9")
 		)
@@ -11292,28 +10819,6 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 151.13 106.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "R res resistor"
-			(at 151.13 106.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "R_*"
 			(at 151.13 106.68 0)
 			(hide yes)
 			(show_name no)
@@ -11405,28 +10910,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "R res resistor"
-			(at 81.28 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "R_*"
-			(at 81.28 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "a8bc2779-45c5-52ef-8359-0e58cd83490c")
 		)
@@ -11498,28 +10981,6 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 383.54 77.47 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "cap capacitor"
-			(at 383.54 77.47 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "C_*"
 			(at 383.54 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -11610,17 +11071,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 299.72 172.72 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "5b23e467-870c-532a-8ac0-4be25ff6b04e")
 		)
@@ -11688,17 +11138,6 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 358.14 154.94 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "global power"
 			(at 358.14 154.94 0)
 			(hide yes)
 			(show_name no)
@@ -11777,28 +11216,6 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 175.26 148.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "cap capacitor"
-			(at 175.26 148.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "C_*"
 			(at 175.26 148.59 0)
 			(hide yes)
 			(show_name no)
@@ -11889,17 +11306,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 363.22 78.74 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "032cf13f-3c10-5bca-90b4-f4b578478eac")
 		)
@@ -11966,28 +11372,6 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 359.41 195.58 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "R res resistor"
-			(at 359.41 195.58 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "R_*"
 			(at 359.41 195.58 0)
 			(hide yes)
 			(show_name no)
@@ -12079,28 +11463,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "R res resistor"
-			(at 144.78 82.55 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "R_*"
-			(at 144.78 82.55 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "3047dc0d-7d4a-538a-82ef-3c28481aa00f")
 		)
@@ -12172,28 +11534,6 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 129.54 100.33 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "R res resistor"
-			(at 129.54 100.33 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "R_*"
 			(at 129.54 100.33 0)
 			(hide yes)
 			(show_name no)
@@ -12289,28 +11629,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "P-Channel MOSFET"
-			(at 373.38 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "SOT?23*"
-			(at 373.38 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "98865648-87d2-5115-8eec-a51bb5511552")
 		)
@@ -12385,28 +11703,6 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 78.74 207.01 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "cap capacitor"
-			(at 78.74 207.01 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "C_*"
 			(at 78.74 207.01 0)
 			(hide yes)
 			(show_name no)
@@ -12497,17 +11793,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 38.1 93.98 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "fc62e035-f4c9-53f8-93ad-46b4c723e4bd")
 		)
@@ -12575,17 +11860,6 @@
 			)
 		)
 		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 45.72 91.44 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "flag power"
 			(at 45.72 91.44 0)
 			(hide yes)
 			(show_name no)
@@ -12664,28 +11938,6 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 96.52 62.23 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "R res resistor"
-			(at 96.52 62.23 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "R_*"
 			(at 96.52 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -12777,28 +12029,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "cap capacitor"
-			(at 353.06 54.61 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "C_*"
-			(at 353.06 54.61 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "b2c86286-359c-56f2-837e-5ca77dd29c9c")
 		)
@@ -12870,17 +12100,6 @@
 			)
 		)
 		(property "Description" "Ceramic chip antenna with pin for PCB trace"
-			(at 114.3 154.94 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "antenna"
 			(at 114.3 154.94 0)
 			(hide yes)
 			(show_name no)
@@ -12982,17 +12201,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 198.12 227.33 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "eb52a634-573a-573e-afa0-7b724bd57334")
 		)
@@ -13062,28 +12270,6 @@
 			)
 		)
 		(property "Description" "USB-Friendly Li-Ion Battery Charger and Power-Path Management, VQFN-16"
-			(at 165.1 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "USB Charger"
-			(at 165.1 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "VQFN*1EP*3x3mm*P0.5mm*"
 			(at 165.1 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -13218,28 +12404,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "solder jumper SPST"
-			(at 363.22 73.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "SolderJumper*Open*"
-			(at 363.22 73.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "3585f214-4992-5fa6-8c26-8f0192767ca4")
 		)
@@ -13310,17 +12474,6 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 40.64 275.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "global power"
 			(at 40.64 275.59 0)
 			(hide yes)
 			(show_name no)
@@ -13408,28 +12561,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "test point tp"
-			(at 320.04 231.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "Pin* Test*"
-			(at 320.04 231.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "52a50bfd-af1c-573c-bf45-4eb76a130ef8")
 		)
@@ -13497,17 +12628,6 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 365.76 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "global power"
 			(at 365.76 50.8 0)
 			(hide yes)
 			(show_name no)
@@ -13596,28 +12716,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "cap capacitor"
-			(at 198.12 49.53 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "C_*"
-			(at 198.12 49.53 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "bffa35a2-749c-50ff-9f07-5a5991485d84")
 		)
@@ -13687,50 +12785,6 @@
 			)
 		)
 		(property "Description" "Four pin crystal, GND on pins 2 and 4"
-			(at 88.9 203.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "private" "KLC_S3.3"
-			(at 88.9 215.9 0)
-			(hide yes)
-			(show_name yes)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "private_1" "KLC_S4.1"
-			(at 88.9 218.44 0)
-			(hide yes)
-			(show_name yes)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "quartz ceramic resonator oscillator"
-			(at 88.9 203.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "Crystal*"
 			(at 88.9 203.2 0)
 			(hide yes)
 			(show_name no)
@@ -13827,17 +12881,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 127 86.36 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "79eb9a54-ec85-5288-b0b1-596a03d173fb")
 		)
@@ -13905,17 +12948,6 @@
 			)
 		)
 		(property "Description" "Push button switch, generic, two pins"
-			(at 312.42 165.1 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "switch normally-open pushbutton push-button"
 			(at 312.42 165.1 0)
 			(hide yes)
 			(show_name no)
@@ -14007,28 +13039,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "cap capacitor"
-			(at 213.36 138.43 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "C_*"
-			(at 213.36 138.43 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "ba34c9e7-10ab-58f8-a0b3-92d27e62ec1d")
 		)
@@ -14099,28 +13109,6 @@
 			)
 		)
 		(property "Description" "Generic connectable mounting pin connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 152.4 264.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "connector"
-			(at 152.4 264.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "Connector*:*_1x??-1MP*"
 			(at 152.4 264.16 0)
 			(hide yes)
 			(show_name no)
@@ -14232,28 +13220,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "cap capacitor"
-			(at 208.28 64.77 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "C_*"
-			(at 208.28 64.77 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "56fe87b7-7f80-5b45-80a8-932f43fdd2b0")
 		)
@@ -14325,28 +13291,6 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 314.96 57.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "cap capacitor"
-			(at 314.96 57.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "C_*"
 			(at 314.96 57.15 0)
 			(hide yes)
 			(show_name no)
@@ -14437,17 +13381,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 198.12 132.08 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "6c9027f7-8c55-5322-b10a-d74e8ed5c457")
 		)
@@ -14516,28 +13449,6 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 142.24 46.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "cap capacitor"
-			(at 142.24 46.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "C_*"
 			(at 142.24 46.99 0)
 			(hide yes)
 			(show_name no)
@@ -14629,28 +13540,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "R res resistor"
-			(at 27.94 166.37 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "R_*"
-			(at 27.94 166.37 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "be0fd47a-0221-5d69-8ff8-a30fef674df6")
 		)
@@ -14731,17 +13620,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 314.96 60.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "63249e30-0efb-5b40-a2b7-0d074c9690a8")
 		)
@@ -14808,28 +13686,6 @@
 			)
 		)
 		(property "Description" "Inductor"
-			(at 134.62 162.56 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "inductor choke coil reactor magnetic"
-			(at 134.62 162.56 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "Choke_* *Coil* Inductor_* L_*"
 			(at 134.62 162.56 0)
 			(hide yes)
 			(show_name no)
@@ -14920,17 +13776,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 322.58 203.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "4e3fe324-04fa-5375-8ce4-9e12fae0621f")
 		)
@@ -14998,17 +13843,6 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"VBUS\""
-			(at 83.82 88.9 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "global power"
 			(at 83.82 88.9 0)
 			(hide yes)
 			(show_name no)
@@ -15096,17 +13930,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 312.42 231.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "52e73238-84ef-5391-81c1-7276b2850687")
 		)
@@ -15174,17 +13997,6 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+BATT\""
-			(at 27.94 162.56 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "global power battery"
 			(at 27.94 162.56 0)
 			(hide yes)
 			(show_name no)
@@ -15273,28 +14085,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "cap capacitor"
-			(at 185.42 148.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "C_*"
-			(at 185.42 148.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "1356111e-5d61-5270-bb5f-e9777ea508e1")
 		)
@@ -15369,28 +14159,6 @@
 			)
 		)
 		(property "Description" "Very low capacitance ESD protection diode, 2 data-line, SOT-23-6"
-			(at 83.82 96.52 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "usb ethernet video"
-			(at 83.82 96.52 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "SOT?23*"
 			(at 83.82 96.52 0)
 			(hide yes)
 			(show_name no)
@@ -15493,17 +14261,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 147.32 142.24 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "7e72df71-a482-5724-b91b-72d1dbe0d0f1")
 		)
@@ -15572,28 +14329,6 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 254 138.43 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "cap capacitor"
-			(at 254 138.43 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "C_*"
 			(at 254 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -15684,17 +14419,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 83.82 106.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "ddc7b301-3d89-5835-9e42-f6d447751fb8")
 		)
@@ -15762,17 +14486,6 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 129.54 96.52 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "global power"
 			(at 129.54 96.52 0)
 			(hide yes)
 			(show_name no)
@@ -15851,28 +14564,6 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 223.52 138.43 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "cap capacitor"
-			(at 223.52 138.43 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "C_*"
 			(at 223.52 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -15963,17 +14654,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 121.92 170.18 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "769ebd98-aeed-5241-a4ab-c059e504dc50")
 		)
@@ -16044,28 +14724,6 @@
 			)
 		)
 		(property "Description" "Digital Humidity and Temperature Sensor, ±1%RH, ±0.1°C, I2C, 1.08-3.6V, 16bit, DFN-4"
-			(at 38.1 266.7 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "Sensirion environment environmental measurement digital SHT40 SHT41 SHT45"
-			(at 38.1 266.7 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "Sensirion?DFN*1.5x1.5mm*P0.8mm*SHT4x*"
 			(at 38.1 266.7 0)
 			(hide yes)
 			(show_name no)
@@ -16162,17 +14820,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 185.42 152.4 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "07e0f367-38ba-51b3-aa4c-01e0fc53b056")
 		)
@@ -16241,28 +14888,6 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 233.68 138.43 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "cap capacitor"
-			(at 233.68 138.43 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "C_*"
 			(at 233.68 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -16353,17 +14978,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 81.28 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "2ade0919-6600-58e3-aec8-d5cdf456547b")
 		)
@@ -16432,28 +15046,6 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 38.1 175.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "cap capacitor"
-			(at 38.1 175.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "C_*"
 			(at 38.1 175.26 0)
 			(hide yes)
 			(show_name no)
@@ -16544,17 +15136,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 96.52 66.04 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "d873abb2-accc-5328-8741-d4ee0d84d516")
 		)
@@ -16623,28 +15204,6 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 267.97 57.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "cap capacitor"
-			(at 267.97 57.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "C_*"
 			(at 267.97 57.15 0)
 			(hide yes)
 			(show_name no)
@@ -16735,17 +15294,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 165.1 40.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "6fc3b501-6b66-5746-932f-123c54850171")
 		)
@@ -16813,28 +15361,6 @@
 			)
 		)
 		(property "Description" "Generic connectable mounting pin connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 236.22 60.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "connector"
-			(at 236.22 60.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "Connector*:*_1x??-1MP*"
 			(at 236.22 60.96 0)
 			(hide yes)
 			(show_name no)
@@ -16939,17 +15465,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "switch normally-open pushbutton push-button"
-			(at 312.42 195.58 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "2bb7a76c-410b-57c6-bf45-d1f82d34f395")
 		)
@@ -17020,17 +15535,6 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 160.02 101.6 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "global power"
 			(at 160.02 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -17118,17 +15622,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 175.26 152.4 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "c26195fc-700b-592c-bb76-aa35344d2a83")
 		)
@@ -17196,17 +15689,6 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 289.56 185.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "global power"
 			(at 289.56 185.42 0)
 			(hide yes)
 			(show_name no)
@@ -17294,17 +15776,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 259.08 142.24 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "e0ade898-9e71-5ef7-af23-eacaee1454de")
 		)
@@ -17371,28 +15842,6 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 248.92 264.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "connector"
-			(at 248.92 264.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "Connector*:*_1x??_*"
 			(at 248.92 264.16 0)
 			(hide yes)
 			(show_name no)
@@ -17489,17 +15938,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 226.06 76.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "2acea40d-3c0c-5e7f-8004-a7041cd7d684")
 		)
@@ -17567,17 +16005,6 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 142.24 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "global power"
 			(at 142.24 50.8 0)
 			(hide yes)
 			(show_name no)
@@ -17665,17 +16092,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 152.4 152.4 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "6196d002-3739-5054-bc29-5bac46f717ab")
 		)
@@ -17744,28 +16160,6 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 50.8 259.08 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "cap capacitor"
-			(at 50.8 259.08 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "C_*"
 			(at 50.8 259.08 0)
 			(hide yes)
 			(show_name no)
@@ -17857,28 +16251,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "R res resistor"
-			(at 198.12 69.85 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "R_*"
-			(at 198.12 69.85 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "75fdc1ef-034c-5b68-8557-82026b74b4f1")
 		)
@@ -17950,28 +16322,6 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 289.56 158.75 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "R res resistor"
-			(at 289.56 158.75 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "R_*"
 			(at 289.56 158.75 0)
 			(hide yes)
 			(show_name no)
@@ -18063,28 +16413,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "R res resistor"
-			(at 134.62 82.55 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "R_*"
-			(at 134.62 82.55 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "6b35c5aa-46f2-5457-af12-13fe4fd962e6")
 		)
@@ -18156,28 +16484,6 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 99.06 261.62 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "R res resistor"
-			(at 99.06 261.62 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "R_*"
 			(at 99.06 261.62 0)
 			(hide yes)
 			(show_name no)
@@ -18268,17 +16574,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 267.97 60.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "f21b14db-9e98-5c91-8795-8880298aaf60")
 		)
@@ -18346,17 +16641,6 @@
 			)
 		)
 		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 71.12 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "flag power"
 			(at 71.12 50.8 0)
 			(hide yes)
 			(show_name no)
@@ -18444,17 +16728,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 198.12 73.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "d3691bd8-c2c4-5e35-ab02-92d5c2c05e0f")
 		)
@@ -18522,17 +16795,6 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 185.42 96.52 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "global power"
 			(at 185.42 96.52 0)
 			(hide yes)
 			(show_name no)
@@ -18611,28 +16873,6 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 243.84 138.43 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "cap capacitor"
-			(at 243.84 138.43 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "C_*"
 			(at 243.84 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -18723,17 +16963,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 227.33 264.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "1b1b3b04-46ff-5828-a99a-77415e3d7fc5")
 		)
@@ -18801,17 +17030,6 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 325.12 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "global power"
 			(at 325.12 50.8 0)
 			(hide yes)
 			(show_name no)
@@ -18899,17 +17117,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 383.54 203.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "a5092ed9-9ee1-5702-96fc-23acd2d80486")
 		)
@@ -18978,28 +17185,6 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 358.14 158.75 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "R res resistor"
-			(at 358.14 158.75 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "R_*"
 			(at 358.14 158.75 0)
 			(hide yes)
 			(show_name no)
@@ -19090,28 +17275,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "test point tp"
-			(at 294.64 218.44 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "Pin* Test*"
-			(at 294.64 218.44 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "baa10f9b-6efd-5118-9c36-d90f6b6f1553")
 		)
@@ -19179,17 +17342,6 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 208.28 68.58 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "global power"
 			(at 208.28 68.58 0)
 			(hide yes)
 			(show_name no)
@@ -19276,28 +17428,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "R res resistor"
-			(at 342.9 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "R_*"
-			(at 342.9 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "d7573985-d4dc-5bb4-913a-8e038cadca06")
 		)
@@ -19368,28 +17498,6 @@
 			)
 		)
 		(property "Description" "Generic connectable mounting pin connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 200.66 264.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "connector"
-			(at 200.66 264.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "Connector*:*_1x??-1MP*"
 			(at 200.66 264.16 0)
 			(hide yes)
 			(show_name no)
@@ -19500,17 +17608,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 292.1 68.58 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "c87a3ad9-566f-5c1b-91ac-f24341e4c8db")
 		)
@@ -19579,28 +17676,6 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 88.9 261.62 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "R res resistor"
-			(at 88.9 261.62 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "R_*"
 			(at 88.9 261.62 0)
 			(hide yes)
 			(show_name no)
@@ -19691,17 +17766,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 198.12 53.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "7c3eb3d0-99f0-5871-8652-163258abaf42")
 		)
@@ -19779,17 +17843,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 88.9 210.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "146a15bb-a7f4-569b-933c-216d77be9ae9")
 		)
@@ -19856,28 +17909,6 @@
 			)
 		)
 		(property "Description" "USB 2.0-only 16P Type-C Receptacle connector"
-			(at 38.1 66.04 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "usb universal serial bus type-C USB2.0"
-			(at 38.1 66.04 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "USB*C*Receptacle*"
 			(at 38.1 66.04 0)
 			(hide yes)
 			(show_name no)
@@ -20023,28 +18054,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "inductor choke coil reactor magnetic"
-			(at 165.1 144.78 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "Choke_* *Coil* Inductor_* L_*"
-			(at 165.1 144.78 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "6c4b38f8-5916-517a-839a-006781949295")
 		)
@@ -20115,28 +18124,6 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 294.64 228.6 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "test point tp"
-			(at 294.64 228.6 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "Pin* Test*"
 			(at 294.64 228.6 0)
 			(hide yes)
 			(show_name no)
@@ -20224,17 +18211,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 60.96 48.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "12b1af2e-d182-5b80-a2c8-31b34003fd23")
 		)
@@ -20312,17 +18288,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 322.58 172.72 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "4a602e79-0c4c-5a77-b1f8-ce0bb05018b2")
 		)
@@ -20389,28 +18354,6 @@
 			)
 		)
 		(property "Description" "ESP32-C6, ultra-low-power SoC with RISC-V single-core microprocessor,2.4 GHz Wi-Fi 6 (802.11 ax), Bluetooth 5 (LE), Zigbee and Thread (802.15.4), QFN-32, 8 MB in-package flash"
-			(at 198.12 190.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "esp32c6 riscv wifi bluetooth zigbee thread"
-			(at 198.12 190.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "QFN*W5mm*P0.5mm*"
 			(at 198.12 190.5 0)
 			(hide yes)
 			(show_name no)
@@ -20605,17 +18548,6 @@
 				)
 			)
 		)
-		(property "ki_keywords" "global power"
-			(at 312.42 218.44 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "0513ef56-421e-5e7b-9122-b661c3efb484")
 		)
@@ -20683,17 +18615,6 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 144.78 170.18 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "global power"
 			(at 144.78 170.18 0)
 			(hide yes)
 			(show_name no)
