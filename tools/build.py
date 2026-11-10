@@ -14,14 +14,16 @@ board.SetCopperLayerCount(4)
 PL = {
  'U1': (35.5, 6.5, 180), 'AE1': (47.5, 5.5, 90),
  'C16': (39.4, 8.73, 270), 'L2': (41.2, 8.25, 180), 'C17': (43.0, 8.73, 270),
- 'C13': (41.2, 7.1, 0), 'C14': (41.2, 5.7, 0), 'L1': (41.2, 4.3, 180), 'C15': (43.1, 2.9, 0), 'C10': (40.6, 2.9, 0),
- 'C21': (43.3, 5.6, 0), 'R14': (43.3, 6.8, 0),
- 'Y1': (36.5, 12.6, 180), 'R11': (38.6, 10.8, 270), 'C18': (39.6, 12.6, 0), 'C19': (33.9, 13.15, 180),
- 'C8': (29.6, 6.25, 180), 'C11': (29.6, 4.4, 0), 'C9': (32.2, 10.6, 0), 'C12': (29.6, 2.9, 0),
+ 'C23': (44.3, 8.73, 270), 'L3': (45.7, 8.25, 180), 'C24': (47.5, 8.73, 270),
+ 'C13': (40.65, 7.02, 90), 'C14': (41.9, 6.475, 90), 'L1': (43.35, 7.25, 180), 'C15': (44.0, 5.8, 90), 'C10': (42.2, 4.4, 0),
+ 'C21': (40.38, 5.5, 0), 'R14': (40.38, 4.4, 0),
+ 'Y1': (36.8, 12.8, 90), 'R11': (37.5, 10.95, 0), 'C18': (38.75, 13.5, 0), 'C19': (34.85, 12.1, 180),
+ 'C8': (29.9, 6.35, 180), 'C11': (28.55, 4.4, 0), 'C9': (32.2, 10.6, 0), 'C12': (28.4, 2.9, 0),
+ 'R21': (32.4, 2.9, 0), 'C26': (31.0, 2.42, 90), 'R20': (31.6, 4.3, 0), 'C25': (30.3, 4.78, 270),
  'R15': (33.6, 1.0, 0), 'R16': (36.0, 1.0, 0),
  'D2': (29.0, 1.2, 0), 'R17': (31.6, 1.2, 180),
  'TP1': (27.0, 5.0, 0), 'TP2': (27.0, 7.2, 0), 'TP3': (24.8, 5.0, 0), 'TP4': (24.8, 7.2, 0),
- 'U3': (27.5, 12.5, 0), 'C4': (24.4, 11.5, 0), 'C5': (31.2, 12.3, 0),
+ 'U3': (27.5, 12.5, 0), 'C4': (25.0, 12.075, 90), 'C5': (30.0, 12.3, 90),
  'U2': (33.5, 18, 0), 'U5': (38.2, 18.5, 90), 'C1': (38.2, 15.4, 0), 'R3': (35.8, 15.3, 90), 'R4': (32.75, 14.8, 90),
  'C2': (33.25, 21.8, 270), 'C3': (30.1, 17.8, 0), 'R5': (30.9, 15.2, 180),
  'J1': (W - 3.675, 18.5, 90), 'J2': (24.5, H - 4.9, 0),
@@ -34,6 +36,10 @@ PL = {
  'J3': (12, 3.1, 180), 'J4': (5, H - 3.1, 0), 'J5': (18.0, 2.0, 90),
  'U4': (3.2, 4.0, 0), 'C22': (5.2, 4.0, 90),
 }
+import os
+if os.path.exists('pl_over.json'):
+    import json as _j
+    PL.update({k: tuple(v) for k, v in _j.load(open('pl_over.json')).items()})
 fps = {}
 for c in sec('components'):
     d = {x[0]: x for x in c if isinstance(x, list)}
@@ -89,7 +95,7 @@ def silk(txt, x, y, size=0.6, ang=0):
 silk('RST', 16.5, 17.7); silk('BOOT', 16.5, 21.7)
 silk('+', pad('J2', 1)[0], 15.9, 0.9); silk('-', pad('J2', 2)[0], 15.9, 0.9); silk('BAT', 26.9, 15.9, 0.6)
 for n, lab in ((1, 'GND'), (2, 'VCC'), (3, 'SCL'), (4, 'SDA')): silk(lab, pad('J5', n)[0], 3.95, 0.4)
-silk('C6-SHT41 rA', 11.6, 21.4, 0.7, 90)
+silk('C6-SHT41 rB', 11.6, 21.4, 0.7, 90)
 # ---- outline with sensor isolation slot
 def seg(a, b, layer=pcbnew.Edge_Cuts, w=0.1):
     s = pcbnew.PCB_SHAPE(board); s.SetShape(pcbnew.SHAPE_T_SEGMENT); s.SetStart(P(*a)); s.SetEnd(P(*b)); s.SetLayer(layer); s.SetWidth(MM(w)); board.Add(s)
@@ -111,11 +117,12 @@ def zone(name, layers, pts, net=None, rule=False, prio=0):
         z.SetPadConnection(pcbnew.ZONE_CONNECTION_THERMAL); z.SetThermalReliefGap(MM(0.2)); z.SetThermalReliefSpokeWidth(MM(0.3))
         z.SetIslandRemovalMode(pcbnew.ISLAND_REMOVAL_MODE_ALWAYS)
     z.SetZoneName(name); board.Add(z); return z
+AK = 7.75   # ground edge below the antenna: the feed pad sits right at it
 ALLCU = [pcbnew.F_Cu, pcbnew.In1_Cu, pcbnew.In2_Cu, pcbnew.B_Cu]
 rect = lambda x1, y1, x2, y2: [(x1, y1), (x2, y1), (x2, y2), (x1, y2)]
-zone('ANT_KEEPOUT', ALLCU, rect(44.8, -0.5, W + 0.5, 10.0), rule=True)
+zone('ANT_KEEPOUT', ALLCU, rect(44.8, -0.5, W + 0.5, AK), rule=True)
 zone('SHT41_KEEPOUT', ALLCU, rect(-0.5, -0.5, 7.5, 10.0), rule=True)
-full = [(7.6, -0.5), (44.8, -0.5), (44.8, 10.0), (W + 0.5, 10.0), (W + 0.5, H + 0.5), (-0.5, H + 0.5), (-0.5, 10.1), (7.6, 10.1)]
+full = [(7.6, -0.5), (44.8, -0.5), (44.8, AK), (W + 0.5, AK), (W + 0.5, H + 0.5), (-0.5, H + 0.5), (-0.5, 10.1), (7.6, 10.1)]
 zone('GND_L2', [pcbnew.In1_Cu], full, 'GND')
 zone('3V3_L3', [pcbnew.In2_Cu], full, '+3V3')
 if 'pours' in sys.argv:
@@ -125,12 +132,16 @@ if 'pours' in sys.argv:
 def track(net, pts, w, layer=pcbnew.F_Cu):
     for a, b in zip(pts, pts[1:]):
         tr = pcbnew.PCB_TRACK(board); tr.SetStart(P(*a)); tr.SetEnd(P(*b)); tr.SetWidth(MM(w)); tr.SetLayer(layer); tr.SetNet(nets[net]); tr.SetLocked(True); board.Add(tr)
-ant = pad('U1', 1); c16 = pad('C16', 1); l2a = pad('L2', 2); l2b = pad('L2', 1); c17 = pad('C17', 1); feed = pad('AE1', 1)
-print('RF pads', ant, c16, l2a, l2b, c17, feed, 'gnd', pad('C16', 2), pad('C17', 2))
-for p in (c16, l2a, l2b, c17): assert abs(p[1] - ant[1]) < 0.01, p
-assert abs(feed[0] - 47.5) < 0.01 and feed[1] > 5.5
-track('Net-(U1-ANT)', [ant, c16, l2a], 0.35)
-track('Net-(AE1-FEED)', [l2b, c17, (feed[0], ant[1]), feed], 0.35)
+def padn(ref, net):
+    for p in fps[ref].Pads():
+        if p.GetNetname() == net: return (ToMM(p.GetPosition().x) - OX, ToMM(p.GetPosition().y) - OY)
+N1, N2, N3 = 'Net-(U1-ANT)', 'Net-(C17-Pad1)', 'Net-(AE1-FEED)'
+ant = pad('U1', 1); feed = pad('AE1', 1)
+chain = [ant, padn('C16', N1), padn('L2', N1), padn('L2', N2), padn('C17', N2), padn('C23', N2), padn('L3', N2), padn('L3', N3), padn('C24', N3)]
+print('RF', chain, feed)
+for p in chain: assert abs(p[1] - ant[1]) < 0.01, p
+assert abs(feed[0] - chain[-1][0]) < 0.01
+track(N1, chain[0:3], 0.35); track(N2, chain[3:7], 0.35); track(N3, [chain[7], chain[8], feed], 0.35)
 
 for r in ('J1', 'J2', 'J3', 'J4', 'J5', 'U2', 'Q1', 'U4', 'Y1', 'U5'):
     print(r, ' '.join('%s(%.2f,%.2f)' % (p.GetNumber(), *pad(r, p.GetNumber())) for p in fps[r].Pads() if p.GetNumber()))

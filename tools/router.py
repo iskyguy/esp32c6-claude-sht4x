@@ -38,7 +38,7 @@ def segdist(ax, ay, bx, by):
 edge = np.zeros((NY, NX), bool)
 for a, b in zip(OUTL, OUTL[1:] + OUTL[:1]): edge |= segdist(*a, *b) < 0.5
 edge |= ((XX > 6.5) & (XX < 7.5) & (YY < 10)) | ((XX > 4.5) & (XX < 7.5) & (YY > 9) & (YY < 10))
-keep = (XX > 44.65) & (YY < 10.15)            # antenna keep-out: nothing routed here automatically
+keep = (XX > 44.65) & (YY < 7.6)            # antenna keep-out: nothing routed here automatically
 for l in (0, 1): own[l][edge | keep] = BLOCK
 penin = (XX < 7.7) & (YY < 10.3)
 novia = penin | keep | edge
@@ -85,14 +85,18 @@ def add_via(x, y, net, record=True, R=0.62):
 
 # pre-routed RF (must match build.py)
 P = {(p['ref'], p['num']): p for p in pads}
-ant = P['U1', '1']; feed = P['AE1', '1']
-stamp_track(0, [(ant['x'], ant['y']), (P['L2', '2']['x'], ant['y'])], 0.35, nid('Net-(U1-ANT)'))
-stamp_track(0, [(P['L2', '1']['x'], ant['y']), (feed['x'], ant['y']), (feed['x'], feed['y'])], 0.35, nid('Net-(AE1-FEED)'))
-# EP vias
-for ref, num, offs in (('U1', '33', [(-0.9, -0.9), (0.9, -0.9), (-0.9, 0.9), (0.9, 0.9), (0, 0)]), ('U2', '17', [(0, 0)])):
+def PN(ref, net):
+    return [p for p in pads if p['ref'] == ref and p['net'] == net][0]
+N1, N2, N3 = 'Net-(U1-ANT)', 'Net-(C17-Pad1)', 'Net-(AE1-FEED)'
+ant = P['U1', '1']; feed = P['AE1', '1']; ry = ant['y']
+stamp_track(0, [(ant['x'], ry), (PN('L2', N1)['x'], ry)], 0.35, nid(N1))
+stamp_track(0, [(PN('L2', N2)['x'], ry), (PN('L3', N2)['x'], ry)], 0.35, nid(N2))
+stamp_track(0, [(PN('L3', N3)['x'], ry), (feed['x'], ry), (feed['x'], feed['y'])], 0.35, nid(N3))
+# exposed-pad vias: 9 under the ESP32-C6, 4 under the charger
+for ref, num, offs in (('U1', '33', [(a, b) for a in (-1.2, 0, 1.2) for b in (-1.2, 0, 1.2)]), ('U2', '17', [(a, b) for a in (-0.4, 0.4) for b in (-0.4, 0.4)])):
     p = P[ref, num]
     for ox, oy in offs: add_via(p['x'] + ox, p['y'] + oy, nid('GND'))
-
+skip = set()
 extra = {}      # (ref,num) -> extra source cells
 mvias = []
 override = {}
@@ -106,10 +110,10 @@ def manual(netname, pts, w, l=0):
 def fanout():
     u = [p for p in pads if p['ref'] == 'U1']
     cx = P['U1', '33']['x']; cy = P['U1', '33']['y']
-    row = {'4': 'A', '5': 'B', '8': 'A', '9': 'A', '14': 'A', '15': 'B', '16': 'A', '17': 'A', '18': 'B', '20': 'A', '21': 'B', '22': 'A',
-           '25': 'A', '26': 'B', '27': 'A', '28': 'B', '29': 'A', '32': 'A'}
+    row = {'5': 'A', '8': 'A', '9': 'A', '14': 'A', '15': 'B', '18': 3.5, '20': 'A',
+           '25': 'A', '26': 1.6, '29': 'A', '32': 'A'}
     for num, rw in row.items():
-        p = P['U1', num]; d = 1.1 if rw == 'A' else 1.9
+        p = P['U1', num]; d = 1.1 if rw == 'A' else 1.9 if rw == 'B' else rw
         dx, dy = p['x'] - cx, p['y'] - cy
         ox, oy = ((1 if dx > 0 else -1), 0) if abs(dx) > abs(dy) else (0, (1 if dy > 0 else -1))
         vx, vy = p['x'] + ox * d, p['y'] + oy * d
@@ -118,6 +122,7 @@ def fanout():
         add_via(vx, vy, nid(p['net']), R=0.5); mvias.append((vx, vy, nid(p['net'])))
         j, i = cell(vx, vy)
         extra['U1', num] = [(0, j, i), (1, j, i)]
+        if num == '18': override['U1', num] = extra['U1', num]
         if p['net'] in PLANE: done_pads.add(('U1', num))
     # BQ24074 ground pins straight into its exposed pad
     e = P['U2', '17']
@@ -132,8 +137,10 @@ def fanout():
         j, i = cell(*pts[-1]); extra[ref, num] = [(0, j, i), (1, j, i)]
     dog('U2', '7', [(P['U2', '7']['x'], P['U2', '7']['y'] + 0.5), (P['U2', '7']['x'] + 0.8, P['U2', '7']['y'] + 1.3)])
     dog('U2', '9', [(P['U2', '9']['x'] + 0.5, P['U2', '9']['y']), (P['U2', '9']['x'] + 1.1, P['U2', '9']['y'] + 0.6)])
-    for num, vx in (('A6', 41.25), ('B6', 41.25), ('A7', 40.45), ('B7', 40.45)):
-        dog('J1', num, [(vx, P['J1', num]['y'])])
+    for num, vx in (('A6', 40.45), ('B6', 40.45), ('A7', 41.25), ('B7', 41.25)):
+        p = P['J1', num]
+        manual(p['net'], [(p['x'], p['y']), (vx, p['y'])], 0.15); mvia(vx, p['y'], p['net'])
+    revb()
     # BQ24074 programming resistors: straight from pin to resistor
     t = P['U2', '1']; q = P['R5', '1']; manual(t['net'], [(t['x'], t['y']), (t['x'] - 0.46, t['y']), (q['x'], t['y'] - 0.22), (q['x'], q['y'])], 0.15)
     t = P['U2', '12']; q = P['R3', '1']; manual(t['net'], [(t['x'], t['y']), (t['x'] + 0.56, t['y']), (q['x'], t['y'] - 0.3), (q['x'], q['y'])], 0.15)
@@ -152,6 +159,68 @@ def fanout():
     lane('/VPERIPH', [(4.45, s3['y']), (4.45, 5.2), (2.85, 6.8)], (2.85, 10.95), [('U4', '3'), ('C22', '1')])
     manual('GND', [(s4['x'], s4['y']), (c2['x'], s4['y'])], 0.15)
     lane('GND', [(c2['x'], s4['y']), (5.95, s4['y']), (5.95, 5.6), (3.45, 8.1)], (3.45, 11.75), [('U4', '4'), ('C22', '2')])
+def mvia(x, y, net, R=0.56):
+    add_via(x, y, nid(net), R=R); mvias.append((x, y, nid(net)))
+def revb():
+    xy = lambda p: (p['x'], p['y'])
+    # --- RF supply: pins 2/3 -> 0.3 mm trunk -> C13 (100n) -> C14 (10u) -> L1
+    V = 'Net-(C13-Pad1)'
+    manual(V, [xy(P['U1', '3']), (38.65, 7.25), (38.7, 7.3)], 0.2)
+    manual(V, [xy(P['U1', '2']), (38.55, 7.75), (39.0, 7.3)], 0.2)
+    l1 = PN('L1', V)
+    manual(V, [(38.7, 7.3), (PN('C13', V)['x'], 7.3), (PN('C14', V)['x'], 7.3), (l1['x'] - 0.05, 7.3), xy(l1)], 0.3)
+    a = PN('L1', '+3V3'); b = PN('C15', '+3V3'); manual('+3V3', [xy(a), xy(b)], 0.3); done_pads.add(('L1', a['num']))
+    # --- EN: pull-up and capacitor right at CHIP_PU, reset button is a branch from the via
+    e1 = PN('C21', '/EN'); e2 = PN('R14', '/EN')
+    manual('/EN', [xy(P['U1', '4']), (39.3, 6.75), (e1['x'], 6.75 - (e1['x'] - 39.3)), xy(e1), xy(e2), (39.75, 3.25)], 0.15)
+    mvia(39.75, 3.25, '/EN'); j, i = cell(39.75, 3.25); override['U1', '4'] = [(0, j, i), (1, j, i)]
+    skip.add(('C21', e1['num'])); skip.add(('R14', e2['num']))
+    a = PN('R14', '+3V3'); b = PN('C10', '+3V3'); manual('+3V3', [xy(a), xy(b)], 0.25); done_pads.add(('R14', a['num']))
+    # --- crystal: both legs on the top layer only
+    manual('/XTAL_N', [xy(P['U1', '30']), xy(P['Y1', '3'])], 0.15)
+    manual('/XTAL_N', [xy(PN('C19', '/XTAL_N')), xy(P['Y1', '3'])], 0.15)
+    r = PN('R11', '/XTAL_P'); manual('/XTAL_P', [xy(P['U1', '31']), (36.75, 10.45), (37.0, 10.7), xy(r)], 0.15)
+    K = 'Net-(C18-Pad1)'; r = PN('R11', K); c = PN('C18', K); y1 = P['Y1', '1']
+    manual(K, [xy(r), (r['x'], 11.5), (c['x'], 11.5 + (r['x'] - c['x'])), xy(c), xy(y1)], 0.15)
+    manual('GND', [xy(P['Y1', '2']), xy(P['Y1', '4'])], 0.15); done_pads.add(('Y1', '2'))
+    c = PN('C8', '+3V3'); manual('+3V3', [(P['U1', '20']['x'] - 1.1, 6.25), (31.7, 6.0), (c['x'] + 0.35, 6.0), xy(c)], 0.19); done_pads.add(('C8', c['num']))
+    # --- UART test points: straight on the top layer
+    t = P['TP2', '1']; manual('/U0RXD', [xy(P['U1', '22']), (27.6, 7.25), xy(t)], 0.15)
+    t = P['TP1', '1']; manual('/U0TXD', [xy(P['U1', '21']), (28.6, 6.75), (27.3, 5.45), xy(t)], 0.15)
+    # --- I2C: leaves the chip on the top layer, passes over the USB pair, then drops to vias west of it
+    def lane2(net, pin, pts, via):
+        manual(net, [xy(P['U1', pin])] + pts + [via], 0.15); mvia(via[0], via[1], net)
+        j, i = cell(*via); override['U1', pin] = [(0, j, i), (1, j, i)]
+    lane2('/SDA', '27', [(34.75, 11.1), (33.6, 11.1), (32.85, 10.35), (30.0, 10.35), (29.7, 10.05)], (29.35, 10.05))
+    lane2('/SCL', '28', [(35.25, 11.45), (33.45, 11.45), (32.75, 10.75)], (28.65, 10.75))
+    # --- regulator: capacitors directly at VIN / VOUT / GND
+    a = PN('C4', '/VSYS'); u = P['U3', '1']; manual('/VSYS', [xy(a), (a['x'] + 0.5, u['y']), xy(u)], 0.4); skip.add(('C4', a['num']))
+    g = P['U3', '2']; a = PN('C4', 'GND'); manual('GND', [xy(a), (a['x'] + 0.5, g['y']), xy(g)], 0.4)
+    a = PN('C5', 'GND'); manual('GND', [xy(a), (a['x'] - (a['y'] - g['y']), g['y']), xy(g)], 0.4); done_pads.add(('U3', '2'))
+    a = PN('C5', '+3V3'); u = P['U3', '5']; manual('+3V3', [xy(u), xy(a)], 0.4); done_pads.add(('U3', '5'))
+    # --- VSYS pins 10/11: joined and dropped to the bottom layer between the charger and the ESD part
+    manual('/VSYS', [xy(P['U2', '11']), xy(P['U2', '10']), (35.5, 18.25), (35.7, 18.05), (36.15, 18.05)], 0.25)
+    mvia(36.15, 18.05, '/VSYS', R=0.62); j, i = cell(36.15, 18.05); override['U2', '10'] = [(0, j, i), (1, j, i)]; skip.add(('U2', '11'))
+    # --- USB: series footprints at the chip, then one coupled pair on the bottom layer to the ESD part and connector
+    WU = 0.2
+    r = PN('R21', '/U_DN'); manual('/U_DN', [xy(P['U1', '16']), (33.75, 3.3), (33.25, 2.8), xy(r)], 0.15)
+    r = PN('R20', '/U_DP'); manual('/U_DP', [xy(P['U1', '17']), (r['x'] + 0.1, 4.75), xy(r)], 0.15)
+    DNV = (30.45, 2.7); DPV = (29.75, 3.69)
+    manual('/USB_DN', [xy(PN('R21', '/USB_DN')), xy(PN('C26', '/USB_DN')), DNV], WU); mvia(*DNV, '/USB_DN')
+    manual('/USB_DP', [xy(PN('R20', '/USB_DP')), xy(PN('C25', '/USB_DP')), DPV], WU); mvia(*DPV, '/USB_DP')
+    YN, YP, YE = 16.2, 16.56, 16.8
+    manual('/USB_DN', [DNV, (30.45, YN - 0.36), (30.81, YN), (40.95, YN), (41.25, YN + 0.3), (41.25, 19.25)], WU, 1)
+    manual('/USB_DP', [DPV, (30.09, 4.03), (30.09, YP - 0.51), (30.6, YP), (36.4, YP), (36.64, YE), (40.0, YE), (40.45, YE + 0.45), (40.45, 18.75)], WU, 1)
+    # ESD taps: one via per line directly on the pair, next to the protection pads (no stubs)
+    manual('/USB_DN', [(39.15, YN), xy(P['U5', '4']), xy(P['U5', '3'])], WU); mvia(39.15, YN, '/USB_DN')
+    manual('/USB_DP', [(37.25, YE), xy(P['U5', '6']), xy(P['U5', '1'])], WU); mvia(37.25, YE, '/USB_DP')
+    # ground return vias next to the layer changes
+    for gx, gy in ((28.95, 4.05), (40.05, 15.45)): add_via(gx, gy, nid('GND'))
+def crystal_guard():
+    # no signal routing or vias on the bottom layer under the crystal and its load network
+    stamp(1, 35.6, 10.4, 40.2, 14.4, 0.01, BLOCK)
+    # nothing on the bottom layer under the RF chain either
+    stamp(1, 37.3, 7.7, 48.6, 8.9, 0.01, BLOCK)
 # SHT4x footprint keep-out under the sensor body
 stamp(0, 3.2 - 0.75, 4.0 - 0.75, 3.2 + 0.75, 4.0 + 0.75, 0.2, BLOCK)
 
@@ -319,7 +388,7 @@ for p in upads: bynet.setdefault(p['net'], []).append(p)
 
 def route_plane(name, order_key=None, only=None):
     n = nid(name); POWER_IDS.add(n); bynet_id[n] = bynet[name]; tmask = plane_tm.setdefault(name, [np.zeros((NY, NX), bool) for _ in (0, 1)])
-    ps = [p for p in bynet[name] if not p['tht'] and (p['ref'], p['num']) not in (('U1', '33'), ('U2', '17')) and (p['ref'], p['num']) not in done_pads]
+    ps = [p for p in bynet[name] if not p['tht'] and (p['ref'], p['num']) not in (('U1', '33'), ('U2', '17')) and (p['ref'], p['num']) not in done_pads and (p['ref'], p['num']) not in skip]
     for p in bynet[name]:
         if p['tht']:
             for c in padcells(p, n): tmask[c[0]][c[1], c[2]] = True
@@ -340,7 +409,7 @@ def route_plane(name, order_key=None, only=None):
         for c in src: tmask[c[0]][c[1], c[2]] = True
 
 def route_net(name):
-    n = nid(name); ps = bynet[name]
+    n = nid(name); ps = [p for p in bynet[name] if (p['ref'], p['num']) not in skip]
     if name in POWER: POWER_IDS.add(n); bynet_id[n] = ps
     if len(ps) < 2: return
     tmask = [np.zeros((NY, NX), bool) for _ in (0, 1)]
@@ -370,7 +439,7 @@ def mstlen(name):
         rest.sort(key=lambda p: min(pdist(p, q) for q in conn)); p = rest.pop(0); tot += min(pdist(p, q) for q in conn); conn.append(p)
     return tot
 
-RFNETS = {'Net-(U1-ANT)', 'Net-(AE1-FEED)'}
+RFNETS = {N1, N2, N3}
 signals = [n for n in bynet if n not in PLANE and n not in RFNETS and len(bynet[n]) > 1]
 PRIORITY = ['Net-(C13-Pad1)', '/XTAL_N', '/XTAL_P', 'Net-(C18-Pad1)', 'VBUS', 'Net-(J1-CC1)', 'Net-(J1-CC2)', '/USB_DP', '/USB_DN', '/VSYS', '+BATT', 'Net-(U2-ILIM)', 'Net-(U2-ISET)', 'Net-(U2-TS)', '/SDA', '/SCL', '/VPERIPH']
 signals.sort(key=lambda n: (PRIORITY.index(n) if n in PRIORITY else 99, mstlen(n)))
@@ -380,8 +449,9 @@ import os
 prio = json.load(open('prio.json')) if os.path.exists('prio.json') else {'nets': [], 'pads': []}
 for net, ref, num in prio['pads']:
     route_plane(net, only=lambda p: (p['ref'], p['num']) == (ref, num))
+crystal_guard()
 for name in prio['nets']: route_net(name)
-routed = set(prio['nets']) | {'Net-(U2-ILIM)', 'Net-(U2-ISET)', 'Net-(U2-TS)'}
+routed = set(prio['nets']) | {'Net-(U2-ILIM)', 'Net-(U2-ISET)', 'Net-(U2-TS)', 'Net-(C13-Pad1)', '/XTAL_N', '/XTAL_P', 'Net-(C18-Pad1)', '/USB_DP', '/USB_DN', '/U_DP', '/U_DN', '/U0RXD', '/U0TXD'}
 u1nets = sorted({p['net'] for p in upads if p['ref'] == 'U1' and p['net'] not in PLANE and p['net'] not in RFNETS}, key=mstlen)
 import random
 SEED = int(os.environ.get('SEED', '0'))

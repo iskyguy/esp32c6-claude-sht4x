@@ -155,17 +155,21 @@ FP = {
     'R': 'Resistor_SMD:R_0402_1005Metric', 'C': 'Capacitor_SMD:C_0402_1005Metric',
     'C6': 'Capacitor_SMD:C_0603_1608Metric', 'L': 'Inductor_SMD:L_0402_1005Metric',
 }
-def two(kind, value, x, y, horiz=False, fp=None, dnp=False, ref=None):
+SPEC = {'100n': '16V X7R 10%', '1u': '10V X5R 10%', '10u': '10V X5R 20%, >=4.7u effective at 4.4V bias', '4.7u': '10V X5R 10%',
+        '12p': '50V C0G 5%', 'R': '1% 1/16W', 'L': 'RF multilayer, high Q'}
+def two(kind, value, x, y, horiz=False, fp=None, dnp=False, ref=None, spec=None):
     """2-pin passive. vertical: pins (x,y-3) top / (x,y+3) bottom. horizontal: (x-3,y) / (x+3,y)."""
     pre = {'R': 'R', 'C': 'C', 'L': 'L'}[kind]
     ref = ref or nref(pre)
     fp = fp or FP[kind]
+    spec = spec or SPEC.get(value) or (SPEC['R'] if kind == 'R' else SPEC['L'] if kind == 'L' else '50V C0G')
+    fl = {'Spec': spec}
     if horiz:
-        c = place('Device', kind, ref, value, x, y, 90, fp=fp, dnp=dnp,
+        c = place('Device', kind, ref, value, x, y, 90, fp=fp, dnp=dnp, fields=fl,
                   refpos=(x, y - 2, 90, None), valpos=(x, y + 2, 90, None))
         c.a, c.b = (x - 3, y), (x + 3, y)
     else:
-        c = place('Device', kind, ref, value, x, y, 0, fp=fp, dnp=dnp,
+        c = place('Device', kind, ref, value, x, y, 0, fp=fp, dnp=dnp, fields=fl,
                   refpos=(x + 1.6, y - 1, 0, 'left'), valpos=(x + 1.6, y + 1, 0, 'left'))
         c.a, c.b = (x, y - 3), (x, y + 3)
     return c
@@ -214,7 +218,7 @@ text(12, 86, 'CC1/CC2 5.1k pull-downs: sink, default USB power (500 mA).\nD+/D- 
 box(90, 22, 196, 92, 'LI-ION CHARGER + POWER PATH (BQ24074)')
 U2 = place('Battery_Management', 'BQ24074RGT', 'U2', 'BQ24074RGTR', 130, 50)
 p = U2.pin(13); wire(p, (p[0], p[1] - 6)); pwr('VBUS', (p[0], p[1] - 6))
-wire((p[0], p[1] - 4), (112, p[1] - 4)); down('C', '1u', (112, p[1] - 4))
+wire((p[0], p[1] - 4), (112, p[1] - 4)); down('C', '1u', (112, p[1] - 4), spec='25V X5R 10%')
 nc(U2.pin(15)); nc(U2.pin(14))
 ce, en1, en2, ilim, iset = U2.pin(4), U2.pin(6), U2.pin(5), U2.pin(12), U2.pin(16)
 wire(ce, (100, ce[1]), (100, 68)); wire(en2, (100, en2[1]))
@@ -246,7 +250,7 @@ text(150, 64, 'ISET 3.6k -> ~250 mA charge (I = 890/R).\nEN2=0, EN1=1 -> 500 mA 
 box(200, 22, 322, 92, '3V3 REGULATOR + SWITCHED PERIPHERAL RAIL')
 U3 = place('Regulator_Linear', 'XC6220B331MR', 'U3', 'XC6220B331MR', 230, 44)
 vi = U3.pin(1); cep = U3.pin(3)
-wire(vi, (206, vi[1])); label((206, vi[1]), 'VSYS', 'l'); down('C', '1u', (211, vi[1]))
+wire(vi, (206, vi[1])); label((206, vi[1]), 'VSYS', 'l'); down('C', '10u', (211, vi[1]), **C0603_10U)
 wire(cep, (cep[0] - 2, cep[1]), (cep[0] - 2, vi[1]))
 p = U3.pin(2); wire(p, (p[0], p[1] + 2)); gnd((p[0], p[1] + 2))
 vo = U3.pin(5); wire(vo, (256, vo[1]), (256, vo[1] - 2)); pwr('+3V3', (256, vo[1] - 2)); down('C', '10u', (248, vo[1]), **C0603_10U)
@@ -282,8 +286,8 @@ wire((X + 12, 112), (X + 48, 112)); gnd((X + 48, 112))
 p = U1.pin(2)
 L1 = two('L', '2.0nH', X - 26, 114, horiz=True)
 wire(p, (p[0], 114), L1.b)
-down('C', '100n', (X - 10, 114)); down('C', '1u', (X - 18, 114)); flag((X - 14, 114))
-wire(L1.a, (X - 40, 114), (X - 40, 112)); pwr('+3V3', (X - 40, 112)); down('C', '10u', (X - 36, 114), **C0603_10U)
+down('C', '100n', (X - 10, 114)); down('C', '10u', (X - 18, 114), **C0603_10U); flag((X - 14, 114))
+wire(L1.a, (X - 40, 114), (X - 40, 112)); pwr('+3V3', (X - 40, 112)); down('C', '1u', (X - 36, 114))
 text(X - 26, 108.5, 'VDDA3P3 (RF)', 1.0)
 p = U1.pin(33); wire(p, (p[0], p[1] + 3)); gnd((p[0], p[1] + 3))
 # left side
@@ -292,18 +296,22 @@ nc(U1.pin(6)); nc(U1.pin(7))
 stub(U1, 30, 'XTAL_N', 3); stub(U1, 31, 'XTAL_P', 3)
 for n in (10, 11, 12, 13): nc(U1.pin(n))
 # right side
-for n, name in ((21, 'U0TXD'), (22, 'U0RXD'), (17, 'USB_DP'), (16, 'USB_DN'), (8, 'VBAT_SENSE'), (9, 'PERIPH_EN_N'),
+for n, name in ((21, 'U0TXD'), (22, 'U0RXD'), (17, 'U_DP'), (16, 'U_DN'), (8, 'VBAT_SENSE'), (9, 'PERIPH_EN_N'),
                 (14, 'GPIO8'), (15, 'BOOT'), (18, 'LED'), (25, 'CHG_N'), (26, 'PGOOD_N'), (27, 'SDA'), (28, 'SCL')):
     stub(U1, n, name, 3)
 for n in (19, 23, 24): nc(U1.pin(n))
 # RF chain
-ant = U1.pin(1)
-sr = two('L', '0R (tune)', X - 50, ant[1], horiz=True, ref=nref('L'))
-wire(ant, sr.b); down('C', 'DNP', (X - 42, ant[1]), dnp=True)
-AE1 = place('Device', 'Antenna_Chip', 'AE1', '2450AT18A100E', X - 66, ant[1] - 6, fp='RF_Antenna:Johanson_2450AT18x100',
+ant = U1.pin(1); ay = ant[1]
+sr = two('L', '2.0nH (tune)', X - 52, ay, horiz=True, ref=nref('L'))
+wire(ant, sr.b); down('C', '1.5p (tune)', (X - 42, ay), spec='50V C0G +/-0.1pF')
+down('C', '1.5p (tune)', (X - 64, ay), spec='50V C0G +/-0.1pF')
+at = two('L', '0R (tune)', X - 84, ay, horiz=True, ref='L3', spec='0R jumper or RF inductor after tuning')
+wire(sr.a, at.b)
+down('C', 'DNP', (X - 74, ay), dnp=True, ref='C23'); down('C', 'DNP', (X - 94, ay), dnp=True, ref='C24')
+AE1 = place('Device', 'Antenna_Chip', 'AE1', '2450AT18A100E', X - 102, ay - 6, fp='RF_Antenna:Johanson_2450AT18x100',
             fields={'MPN': 'Johanson 2450AT18A100E'})
-fd = AE1.pin(1); wire(sr.a, (fd[0], ant[1]), fd); down('C', 'DNP', (X - 60, ant[1]), dnp=True); nc(AE1.pin(2))
-text(12, 102, '2.4 GHz chip antenna shared by Wi-Fi and Zigbee/Thread.\n50 ohm feed, pi network next to the chip pin; fit 0R in\nseries and tune with a VNA on the finished board.\nKeep-out under/around AE1 per Johanson layout.', 1.0)
+fd = AE1.pin(1); wire(at.a, (fd[0], ay), fd); nc(AE1.pin(2))
+text(12, 99.5, '2.4 GHz chip antenna shared by Wi-Fi and Zigbee/Thread. Two pi networks on a 50 ohm line:\nC16-L2-C17 next to the chip pin = chip matching + harmonic low-pass (always fitted).\nC23-L3-C24 next to the antenna = antenna tuning (0R + DNP until tuned).\nValues marked (tune) are starting points only: set them with a VNA on the built board.', 1.0)
 # crystal
 Y1 = place('Device', 'Crystal_GND24', 'Y1', '40MHz 10ppm CL=10pF', 70, 160, fp='Crystal:Crystal_SMD_2016-4Pin_2.0x1.6mm',
            refpos=(70, 152.5, 0, None), valpos=(70, 154.5, 0, None))
@@ -314,6 +322,13 @@ wire(bb, (80, 160)); label((80, 160), 'XTAL_N')
 c1 = two('C', '12p', 62, 163); c2 = two('C', '12p', 78, 163)
 wire((62, 166), (78, 166)); wire(gg, (70, 166)); gnd((70, 166))
 text(40, 171, 'Load caps: 2 x (CL - Cstray). R on XTAL_P may become\n~24 nH to suppress harmonics (Espressif guideline).', 1.0)
+# USB tuning footprints, placed at the chip
+for i, (a_, b_, rr, cc) in enumerate((('U_DP', 'USB_DP', 'R20', 'C25'), ('U_DN', 'USB_DN', 'R21', 'C26'))):
+    x0 = 96 + 34 * i; y0 = 180
+    label((x0, y0), a_, 'l'); r = two('R', '0R', x0 + 5, y0, horiz=True, ref=rr, spec='0R jumper (USB series tuning)')
+    wire((x0, y0), r.a); wire(r.b, (x0 + 18, y0)); label((x0 + 18, y0), b_)
+    down('C', 'DNP', (x0 + 12, y0), dnp=True, ref=cc)
+text(92, 173.5, 'USB tuning footprints at the chip: 0R in series, shunt capacitor not fitted.', 1.0)
 # vbat sense
 pwr('+BATT', (22, 128)); ra = two('R', '1M', 22, 131); rb = two('R', '1M', 22, 139)
 wire(ra.b, rb.a); gnd(rb.b)
@@ -385,7 +400,7 @@ for p in sorted(jn):
 
 # ---------------------------------------------------------------- write
 head = '''(kicad_sch (version 20250114) (generator "eeschema") (generator_version "9.0") (uuid %s) (paper "A3")
-(title_block (title "ESP32-C6 + SHT41 battery sensor node") (date "2026-11-10") (rev "A")
+(title_block (title "ESP32-C6 + SHT41 battery sensor node") (date "2026-11-10") (rev "B")
  (comment 1 "ESPHome target: Wi-Fi first, 802.15.4 (Zigbee) capable")
  (comment 2 "USB-C charging with power path, 1S Li-ion on JST-PH"))
 ''' % q(ROOT)

@@ -3,7 +3,8 @@
 A small battery-powered temperature/humidity node built around the bare
 ESP32-C6 chip, meant to run ESPHome over Wi-Fi now and Zigbee (802.15.4) later.
 
-**Status: schematic and first-pass PCB layout, revision A.** Nothing has been
+**Status: schematic and PCB layout, revision B** (revision A plus the changes
+from a design review, listed under "Revision B changes"). Nothing has been
 built or tested. The layout passes KiCad's design rules check but was routed
 by script and needs a human review before ordering (see below).
 
@@ -27,7 +28,7 @@ by script and needs a human review before ordering (see below).
 | Block | Part | Notes |
 |---|---|---|
 | MCU | ESP32-C6FH8 (QFN32) | Bare chip, 8 MB in-package flash, Wi-Fi 6 + BLE + 802.15.4. 40 MHz crystal. The 4 MB ESP32-C6FH4 is a drop-in alternative. |
-| Antenna | Johanson 2450AT18A100E chip antenna | One 2.4 GHz antenna serves Wi-Fi and Zigbee/Thread. Pi matching network (L2, C16, C17) to tune on the finished board. |
+| Antenna | Johanson 2450AT18A100E chip antenna | One 2.4 GHz antenna serves Wi-Fi and Zigbee/Thread. Two pi networks on the 50 ohm feed: C16-L2-C17 at the chip pin (chip matching and harmonic filter, fitted) and C23-L3-C24 at the antenna (antenna tuning, 0R and not-fitted until tuned). |
 | USB | USB-C 16-pin receptacle | 5.1 k on CC1/CC2, D+/D- to the chip's native USB Serial/JTAG (GPIO13/GPIO12) for flashing and logs, USBLC6-2 ESD protection. |
 | Charger | TI BQ24074 | 1-cell Li-ion/LiPo charger with power path: the board runs from USB while the battery charges, and from the battery otherwise. |
 | Regulator | XC6220B331MR | 3.3 V, 700 mA, about 8 uA quiescent current. |
@@ -83,8 +84,14 @@ Bridging solder jumper JP1 makes the rail permanently on.
   1 mm slot on two sides. There is no copper pour on any layer there, and the
   only copper crossing the 4.5 mm bridge is four 0.15 mm traces.
 - The chip antenna is in the top-right corner with all four copper layers
-  cleared around it. The feed is a 0.35 mm trace over the layer-2 ground
-  plane with the pi matching network next to the ESP32-C6.
+  cleared around it (5.2 x 7.75 mm). The ground edge now sits right below the
+  antenna feed pad, so the 0.35 mm feed runs over the layer-2 ground plane for
+  all but its last 0.35 mm. Nothing is routed on the bottom layer under the
+  RF chain.
+- Both crystal traces are on the top layer only, with solid ground on layers
+  2 and 4 underneath and no signals or vias under the crystal.
+- USB D+/D- run as one 0.2 mm / 0.16 mm gap pair on the bottom layer from the
+  connector, past the ESD part, to series footprints at the chip.
 - USB-C is on the right edge, the battery connector on the bottom edge, one
   Qwiic port on the top edge and one on the bottom edge, and the OLED socket
   along the top edge.
@@ -96,12 +103,22 @@ The layout was placed by hand and routed by a script, then checked with
 KiCad's DRC. DRC only proves the copper is connected and spaced correctly.
 A person should still look at:
 
-- **RF feed impedance.** 0.35 mm assumes roughly 0.2 mm of prepreg between
-  layers 1 and 2 (for example JLCPCB's JLC04161H-7628 stackup). Recalculate
-  for the real stackup.
-- **USB D+/D-.** They are routed as two ordinary traces, not as a matched
-  90 ohm pair. That is normally fine for 12 Mbit/s full-speed USB over this
-  distance, but it is not textbook.
+- **Stackup.** No fab stackup is chosen yet. The 0.35 mm RF feed and the
+  0.2/0.16 mm USB pair assume roughly 0.2 mm of prepreg between the outer and
+  inner layers (for example JLCPCB's JLC04161H-7628). Recalculate both for
+  the real stackup.
+- **Antenna geometry.** The antenna position and clearance were not checked
+  against Johanson's mounting drawing for the 2450AT18A100E (the datasheet
+  could not be opened while designing). Compare before ordering.
+- **RF values.** C16/L2/C17 (1.5 pF / 2.0 nH / 1.5 pF) are placeholders so
+  the board is not built with an open filter. They and C23/L3/C24 must be
+  set with a network analyser on the built board.
+- **USB pair.** The two lines separate for about 2 mm at the chip-side vias
+  and widen to 0.6 mm pitch for 3 mm beside the ESD part. The pair references
+  the 3V3 plane on the bottom layer.
+- **EN.** The pull-up and capacitor are now 2.5 mm from the pin, but the
+  branch to the reset button is still about 35 mm long because the button is
+  on the other side of the board.
 - **Trace aesthetics and return paths.** The autorouted traces are valid but
   not tidy, and some signals cross the board on the bottom layer.
 - **Decoupling.** Several ESP32-C6 supply pins reach their capacitors through
@@ -109,6 +126,28 @@ A person should still look at:
 - **No mounting holes** and no fiducials yet.
 - Footprints are the stock KiCad ones and have not been checked against the
   exact parts in the BOM.
+
+### Revision B changes
+
+Made in response to a review of revision A:
+
+1. RF: chip-side pi network is now fitted, and a separate antenna tuning pi
+   (C23, L3, C24) was added next to the antenna.
+2. Antenna feed: ground boundary moved up to the feed pad, so the feed is over
+   ground almost to the antenna. The antenna clearance itself is kept.
+3. Regulator: 10 uF input (C4) and 10 uF output (C5) capacitors sit directly
+   at the VIN, VOUT and GND pins with 0.4 mm traces.
+4. RF supply: pins 2/3 leave on a 0.3 mm trace, C13 (100 nF) and C14 (now
+   10 uF) are after L1, and the 1 uF (C15) is before it. The ESP32-C6 exposed
+   pad has 9 ground vias, the charger pad has 4.
+5. Crystal: both legs on the top layer with no vias, R11 stays as the series
+   tuning position, nothing routed underneath.
+6. USB: routed as a pair, 2 vias per line instead of 5 and 2, about 34 mm
+   per line, ground vias at the layer changes, and 0R series (R20, R21) plus
+   not-fitted shunt capacitor (C25, C26) footprints at the chip.
+7. EN: R14 and C21 moved next to the pin, with the reset button as a branch.
+8. The BOM has a Spec column with dielectric, voltage and tolerance.
+9. The status LED and its resistor moved next to the test points.
 
 ## SHT41 layout rules
 
@@ -201,7 +240,14 @@ and should be checked by a person:
   on TS) were taken from memory of the TI datasheet.
 - **ESP32-C6FH8 pinout** comes from Espressif's own KiCad symbol for the
   pin-compatible ESP32-C6FH4.
-- **Crystal load capacitors** (12 pF) depend on the exact crystal chosen.
+- **Crystal.** No exact part is chosen. The design assumes a 40 MHz,
+  2.0 x 1.6 mm, 10 pF load, 10 ppm crystal with pads 1 and 3 as the crystal.
+  The 12 pF load capacitors must be recalculated for the chosen part.
+- **Battery.** No cell is specified. Check that it accepts about 250 mA of
+  charge current and has its own protection circuit. The board has no cell
+  protection, no reverse-polarity protection and no battery thermistor.
+- **Capacitors.** The BOM gives dielectric and voltage, not manufacturer part
+  numbers.
 - **Antenna matching** values must be tuned on the real PCB.
 
 ## Credits
